@@ -1,0 +1,6 @@
+com\job\portal\repository\JobRepository.class
+com\job\portal\controller\JobController.class
+com\job\portal\services\JobService.class
+com\job\portal\services\JobServiceImpl.class
+com\job\portal\PortalApplication.class
+com\job\portal\data\Job.class

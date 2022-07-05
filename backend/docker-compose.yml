@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  database:
+    image: pankajdets/mongo
+    container_name: mongo-on-docker
+    restart: always
+    ports:
+      - 27017:27017
+  springboot:
+    image:  pankajdets/springbootimg
+    container_name: springapplication-on-docker
+    ports:
+      - 8080:8080
+    depends_on: 
+      - database
+    links: 
+      - database
+  react:
+    image: pankajdets/react
+    container_name: react-on-docker
+    ports: 
+      - "3000:3000"
+    depends_on: 
+      - springboot
+    links: 
+      - springboot
