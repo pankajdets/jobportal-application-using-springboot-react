@@ -25,12 +25,12 @@ spec:
       labels:
         app: spring-mongo-service
     spec:
-     containers:
-      - name: spring-mongo-service
-        image: spring-mongo-service:1.0
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 8080
+      containers:
+        - name: spring-mongo-service
+          image: spring-mongo-service:1.0
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 8080
           env:
             - name: MONGO_USERNAME
               valueFrom:
