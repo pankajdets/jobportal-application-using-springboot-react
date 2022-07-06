@@ -19,7 +19,7 @@ spec:
   selector:
       matchLabels:
         app: spring-mongo-service
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -27,8 +27,7 @@ spec:
     spec:
       containers:
         - name: spring-mongo-service
-          image: spring-mongo-service:1.0
-          imagePullPolicy: Never
+          image: pankajdets/springbootimage
           ports:
           - containerPort: 8080
           env:
