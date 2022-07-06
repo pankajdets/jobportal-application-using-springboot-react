@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: spring-mongo-service
-          image: pankajdets/springbootimage
+          image: pankajdets/springbootkuberimg
           ports:
           - containerPort: 8080
           env:
