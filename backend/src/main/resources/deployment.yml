@@ -47,4 +47,4 @@ spec:
                   name: mongo-conf  
                   key: database
             - name: MONGO_HOST
-              value: 192.168.91.62
+              value: 192.168.91.30

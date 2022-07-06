@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: spring-mongo-service
-          image: pankajdets/springbootimage
+          image: pankajdets/springbootkuberimg
           ports:
           - containerPort: 8080
           env:
@@ -47,7 +47,4 @@ spec:
                   name: mongo-conf  
                   key: database
             - name: MONGO_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: mongo-conf 
-                  key: host
+              value: 192.168.91.30
