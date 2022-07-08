@@ -7,9 +7,9 @@ spec:
     app: spring-mongo-service
   ports:
   - protocol: TCP
-    port: 8080
-    nodePort: 30081
-  type: NodePort
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -47,4 +47,4 @@ spec:
                   name: mongo-conf  
                   key: database
             - name: MONGO_HOST
-              value: 192.168.91.30
+              value: mongodb-service
