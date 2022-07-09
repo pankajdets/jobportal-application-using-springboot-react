@@ -1,4 +1,4 @@
-const base_url="spring-mongo-service:32169";
+const base_url="http://20.241.228.137:8080/jobs";
 
 
 export default base_url;
