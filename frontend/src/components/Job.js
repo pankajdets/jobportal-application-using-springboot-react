@@ -27,7 +27,7 @@ const Job = ( {singleJob, updateArray} ) => {
                     <CardText className="text-white">Skills Required : {singleJob.skillKeywords}</CardText>
                     <CardText className="text-white">Job Description : {singleJob.jobDescription}</CardText>
                     <CardText className="text-white">Location : {singleJob.location}</CardText>
-                    <Button href="https://forms.gle/Eyt9aQ4FDDB8HXB37" className="bg-success" style={{borderColor: '#ffffff'}}>Apply</Button>
+                    <Button href="https://docs.google.com/forms/d/e/1FAIpQLSd4s2uwQY7_Cl6slfmpkGpghAlE9lh0-TS8GxoDbDNERhw6XQ/viewform?usp=sf_link" className="bg-success" style={{borderColor: '#ffffff'}}>Apply</Button>
                     <br/>
                     <Button className="bg-danger" style={{borderColor: '#ffffff'}}
                     onClick={() => {
