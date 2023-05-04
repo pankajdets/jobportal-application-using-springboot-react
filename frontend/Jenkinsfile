@@ -1,0 +1,50 @@
+pipeline {
+    
+    environment {
+        
+        dockerhub = credentials('docker-hub-credentials')
+        dockerImage = ''
+    }
+    
+    agent any 
+    // agent is where my pipeline will be eexecuted
+   
+    stages {
+        stage('pull from scm') {
+            steps {
+            git branch: 'main', credentialsId: 'gitlab-token', url: 'https://github.com/pankajdets/jobportal-frontend.git'
+            }
+        }
+        stage('docker image') {
+            steps {
+                script {
+                    dockerImage=docker.build("reactkuberimg","-f Dockerfile .")
+                }
+            }
+        }
+    
+        stage('docker push on Dockerhub') {
+            steps {
+                
+                sh "docker tag reactkuberimg pankajdets/reactkuberimg"
+                
+                sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
+                
+                sh "docker push pankajdets/reactkuberimg"
+                
+            }
+        }
+        
+        stage ('Deploy on AKS cluster'){
+
+            steps{
+                
+               kubeconfig(caCertificate: '', credentialsId: 'aks-cred', serverUrl: 'https://aksdemo-dns-1650bf83.hcp.eastus.azmk8s.io:443') {
+                  
+                  sh "kubectl apply -f deployment.yml"
+                
+                  
+            }}
+            }
+    }
+}
